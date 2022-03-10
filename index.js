@@ -11,6 +11,7 @@ const render = Render.create({
     element: document.body,
     engine: engine,
     options:{
+        wireframes: false,
         width:800,
         height: 600
     }
@@ -39,7 +40,7 @@ const walls = [
     World.add(world, walls);
 
     //random
-for (let i = 0; i < 20; i++ ){
+for (let i = 0; i < 50; i++ ){
     if(Math.random() > 0.5) {
         World.add(world, Bodies.rectangle(Math.random() * width, Math.random() * height, 50, 50)
     
