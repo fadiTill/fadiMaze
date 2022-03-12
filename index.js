@@ -12,9 +12,9 @@ const render = Render.create({
     element: document.body,
     engine: engine,
     options:{
-        wireframes: false,
-        width:800,
-        height: 600,
+        wireframes: true,
+        width,
+        height,
     }
 })
 Render.run(render);
@@ -59,5 +59,22 @@ const walls = [
 //     }
     
 //     }
+
+// const grid = [];
+
+// for (let i = 0; i < 3; i++) {
+//     grid.push([])
+//     for (let j = 0;  j < 3; j++ ) {
+//         grid[i].push(false);
+
+//     }
+
+// }
+// console.log(grid);
+
+const grid = Array(3)
+.fill(null)
+.map(()=> Array(3).fill(false) );
+console.log(grid)
     
    
