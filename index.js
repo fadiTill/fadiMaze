@@ -40,6 +40,22 @@ const walls = [
 ]
     World.add(world, walls);
 
+
+    const shuffle = (arr) => {
+     let counter = arr.length;
+
+
+     while(counter > 0){
+         const index = Math.floor(Math.random() * counter);
+
+         counter--;
+         const temp = arr[counter];
+         arr[counter] = arr[index];
+         arr[index] = temp;
+     }
+     return arr;
+    }
+
     //random
 // for (let i = 0; i < 50; i++ ){
 //     if(Math.random() > 0.5) {
@@ -85,7 +101,7 @@ const horizontals = Array(cells-1)
 .fill(null)
 .map(()=> Array(cells).fill(false))
 
-console.log(verticals );
+// console.log(verticals );
 
 const startRow = Math.floor(Math.random()* cells);
 const startColumn = Math.floor(Math.random()* cells);
@@ -95,7 +111,22 @@ const startColumn = Math.floor(Math.random()* cells);
 
    const stepTroughCell = (row, column) => {
        //if I have visited  cell at [row, column]
+    if(grid[row][column]){
+        return;
+    }
+    grid[row][column] = true;
+
+    const neighbors = shuffle([
+        [row -1 , column],
+        [row, column + 1],
+        [row + 1, column ],
+        [row, column -1]
+
+    ]);
+    console.log(neighbors);
 
    }
 
-   stepTroughCell(startRow, startColumn)
+//    stepTroughCell(startRow, startColumn)
+stepTroughCell(1, 1)
+//    console.log(grid)
