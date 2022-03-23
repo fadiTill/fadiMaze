@@ -117,14 +117,27 @@ const startColumn = Math.floor(Math.random()* cells);
     grid[row][column] = true;
 
     const neighbors = shuffle([
-        [row -1 , column],
-        [row, column + 1],
-        [row + 1, column ],
-        [row, column -1]
+        [row -1 , column, 'up'],
+        [row, column + 1,'right'],
+        [row + 1, column,'down' ],
+        [row, column -1,'left']
 
     ]);
-    console.log(neighbors);
+    // console.log(neighbors);
+    for(let neighbor of neighbors){
+        const [nexRow, nextColumn, direction] = neighbor;
 
+        if(nextRow < 0|| nextRow >= cells || nextColumn < 0 || nextColumn >= cells 
+            ){
+                continue;
+            }
+        //is in bounds?
+       if (grid[nextRow][nextColumn]){
+           continue;
+
+       }
+    }
+    
    }
 
 //    stepTroughCell(startRow, startColumn)
