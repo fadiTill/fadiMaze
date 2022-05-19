@@ -125,7 +125,7 @@ const startColumn = Math.floor(Math.random()* cells);
     ]);
     // console.log(neighbors);
     for(let neighbor of neighbors){
-        const [nexRow, nextColumn, direction] = neighbor;
+        const [nextRow, nextColumn, direction] = neighbor;
 
         if(nextRow < 0|| nextRow >= cells || nextColumn < 0 || nextColumn >= cells 
             ){
@@ -136,10 +136,31 @@ const startColumn = Math.floor(Math.random()* cells);
            continue;
 
        }
+       if (direction ==="left") {
+       verticals[row][column-1] = true;
+
+       } else if (direction === "right"){
+           verticals[row][column] = true;
+       } else if(direction === "up"){
+          horizontals[row-1][column] = true;
+
+       } else if (direction ===" down"){
+           horizontals[row][column] = true;
+       }
+       stepTroughCell(nextRow,nextColumn);
     }
+
+   
     
    }
 
 //    stepTroughCell(startRow, startColumn)
-stepTroughCell(1, 1)
+stepTroughCell(startRow, startColumn);
+
+horizontals.forEach((row)=>{
+// console.log(row)
+row.forEach((open) => {
+
+})
+})
 //    console.log(grid)
